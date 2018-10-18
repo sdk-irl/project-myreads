@@ -17,6 +17,7 @@ class BooksApp extends React.Component {
     })
   }
 
+  //Credit: https://reactjs.org/docs/state-and-lifecycle.html and Udacity State Mgt Lesson helped clarify state
   render() {
     console.log(this.state.books);
     return (
@@ -24,7 +25,10 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           < Search />
         ) : (
-          < Main />
+          < Main 
+            //pass in state properties to main page
+            books={this.state.books} 
+          />
         )}
       </div>
     )
