@@ -16,6 +16,10 @@ class BooksApp extends React.Component {
       this.setState({ books: books })
     })
   }
+  
+  moveBook() => {
+
+  }
 
   //Credit: https://reactjs.org/docs/state-and-lifecycle.html and Udacity State Mgt Lesson helped clarify state
   render() {
@@ -27,7 +31,8 @@ class BooksApp extends React.Component {
         ) : (
           < Main 
             //pass in state properties to main page
-            books={this.state.books} 
+            books={this.state.books}
+            moveBook={this.state.moveBook}
           />
         )}
       </div>
