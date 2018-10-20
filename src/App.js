@@ -17,8 +17,9 @@ class BooksApp extends React.Component {
     })
   }
   
-  moveBook() => {
-
+  //Credit: https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
+  moveBook = (book, shelf) => {
+    BooksAPI.update(book, shelf)
   }
 
   //Credit: https://reactjs.org/docs/state-and-lifecycle.html and Udacity State Mgt Lesson helped clarify state
@@ -29,10 +30,9 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           < Search />
         ) : (
-          < Main 
-            //pass in state properties to main page
+          < Main
             books={this.state.books}
-            moveBook={this.state.moveBook}
+            moveBook={this.moveBook}
           />
         )}
       </div>
