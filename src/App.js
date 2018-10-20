@@ -8,7 +8,7 @@ import * as BooksAPI from './BooksAPI'
 class BooksApp extends React.Component {
   state = {
     books: [],
-    showSearchPage: false
+    showSearchPage: true
   }
 
   componentDidMount() {
