@@ -12,6 +12,7 @@ class Book extends Component {
                 < BookMover
                     book={this.props.book}
                     moveBook={this.props.moveBook}
+                    shelf={this.props.shelf}
                 />
                 </div>
                 <div className="book-title">{this.props.book.title}</div>

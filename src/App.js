@@ -20,6 +20,8 @@ class BooksApp extends React.Component {
   //Credit: https://stackoverflow.com/questions/28868071/onchange-event-using-react-js-for-drop-down
   moveBook = (book, shelf) => {
     BooksAPI.update(book, shelf)
+    .then(() => BooksAPI.getAll())
+    .then((books) => this.setState({books: books}))
   }
 
   //Credit: https://reactjs.org/docs/state-and-lifecycle.html and Udacity State Mgt Lesson helped clarify state
