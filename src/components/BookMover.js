@@ -9,7 +9,7 @@ class BookMover extends Component {
                 {/*Credit: https://reactjs.org/docs/handling-events.html and https://github.com/muicss/mui/issues/73*/}
                 <select 
                     onChange = {(event) => this.props.moveBook(this.props.book, event.target.value)}
-                    value = {this.props.shelf}
+                    value = {this.props.book.shelf}
                 >
                 <option value="move">Move to... </option>
                 <option value="currentlyReading">Currently Reading</option>
