@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import BookMover from './BookMover'
-import PropTypes from 'prop-types'
 
 class Book extends Component {
     render() {
+        let imageURL = this.props.book.imageLinks ? this.props.book.imageLinks.smallThumbnail : ''
         console.log('book.js', this.props)
         return(
             <div className="book">
                 <div className="book-top">
-                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.smallThumbnail})` }}></div>
+                <div 
+                    className="book-cover" 
+                    style= {{ 
+                        width: 128, 
+                        height: 193, 
+                        backgroundImage: `url(${imageURL})` 
+                        }}>
+                    </div>
                 < BookMover
                     book={this.props.book}
                     moveBook={this.props.moveBook}
