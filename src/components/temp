@@ -1,7 +1,13 @@
-let showingBooks 
-        if (this.state.query) {
-          const match = new RegExp(escapeRegExp(this.state.query), 'i')
-          showingBooks = this.props.books.filter((book) => match.test((book.title)||(book.author))
-        } else {
-          showingBooks = this.props.books
-        }
+      <div className="app">
+        {this.state.showSearchPage ? (
+          < Search 
+            books={this.state.books}
+            moveBook={this.moveBook}
+          />
+        ) : (
+          < Main
+            books={this.state.books}
+            moveBook={this.moveBook}
+          />
+        )}
+      </div>

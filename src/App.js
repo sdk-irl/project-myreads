@@ -3,12 +3,11 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Search from './components/Search'
 import Main from './components/Main'
-import Route from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    books: [],
-    showSearchPage: true //false for main pg, true for search
+    books: []
   }
 
   componentDidMount() {
@@ -26,20 +25,22 @@ class BooksApp extends React.Component {
 
   //Credit: Assistance from https://reactjs.org/docs/state-and-lifecycle.html and Udacity State Mgt Lesson helped clarify state
   render() {
-    console.log(this.state.books);
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          < Search 
-            books={this.state.books}
-            moveBook={this.moveBook}
-          />
-        ) : (
+        <Route path='/' render={() => (
           < Main
             books={this.state.books}
             moveBook={this.moveBook}
           />
         )}
+        />
+         <Route path='/search' render={() => (
+          < Search 
+            books={this.state.books}
+            moveBook={this.moveBook}
+          />
+        )} 
+        /> 
       </div>
     )
   }
