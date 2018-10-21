@@ -7,7 +7,7 @@ import Main from './components/Main'
 class BooksApp extends React.Component {
   state = {
     books: [],
-    showSearchPage: true
+    showSearchPage: true //false for main pg, true for search
   }
 
   componentDidMount() {
@@ -31,6 +31,7 @@ class BooksApp extends React.Component {
         {this.state.showSearchPage ? (
           < Search 
             books={this.state.books}
+            moveBook={this.moveBook}
           />
         ) : (
           < Main

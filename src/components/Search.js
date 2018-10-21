@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import * as BooksAPI from '../BooksAPI'
-import Book from './Book';
+import Book from './Book'
+//import { Link } from 'react-router-dom'
 
 
 class Search extends Component {
@@ -29,14 +28,21 @@ class Search extends Component {
       this.setState({queriedBooks:[]})
     }
   }
-// Credit: Several parts of this are almost line-for-line rewritten from learning 
+// Credit: Learned this from, but also rewrote some parts of code almost line-for-line from  
 // Udacity controlled components course code: https://github.com/udacity/reactnd-contacts-complete/commit/ce3a9a8a0f1d8d0224eba663e512cd309fb1f804
 
     render() {
         return(
             <div className="search-books">
             <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
+{/*              <div>
+                <Link classname='back-to-main' to='/'>Close</Link>
+</div> */}
+              <a 
+                className="close-search" 
+                onClick={() => this.setState({ showSearchPage: false })}
+              >Close</a>
+
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -53,7 +59,6 @@ class Search extends Component {
                   value = {this.state.query}
                   onChange = {(event) => this.updateQuery(event.target.value)}
                 />
-
               </div>
             </div>
             <div className="search-books-results">
@@ -63,6 +68,7 @@ class Search extends Component {
                     <li key={queriedBooks.id}>
                       <Book
                         book={queriedBooks}
+                        moveBook={this.props.moveBook}
                       />
                     </li>)}
             </div>
