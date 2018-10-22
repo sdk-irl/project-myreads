@@ -3,7 +3,6 @@ import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
 import { Link } from 'react-router-dom'
 
-
 class Search extends Component {
   state = {
     query: '',
@@ -31,7 +30,8 @@ class Search extends Component {
 
 // Credit: Learned this from, but also rewrote some parts of code almost line-for-line from  
 // Udacity controlled components course code: https://github.com/udacity/reactnd-contacts-complete/commit/ce3a9a8a0f1d8d0224eba663e512cd309fb1f804
-
+// Significant help in this section from Maeva's walkthrough https://www.youtube.com/watch?v=i6L2jLHV9j8, 
+// also troubleshooting assistance from @drunkenkismet and @carlos[FEND] on Slack DM
     render() {
         return(
             <div className="search-books">
@@ -41,15 +41,6 @@ class Search extends Component {
                 className="close-search" 
               >Close</Link>
               <div className="search-books-input-wrapper">
-                {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */
-                }
                 <input 
                   type="text" 
                   placeholder="Search by title or author"
