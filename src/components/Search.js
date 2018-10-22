@@ -19,15 +19,16 @@ class Search extends Component {
     if (query) {
       BooksAPI.search(query).then((queriedBooks) => {
         if (queriedBooks.error) {
-          this.setState({queriedBooks:[]});
+          this.setState({queriedBooks:[]})
         } else {
           this.setState({queriedBooks: queriedBooks});
         }
-      })
+     })
     } else {
       this.setState({queriedBooks:[]})
     }
   }
+
 // Credit: Learned this from, but also rewrote some parts of code almost line-for-line from  
 // Udacity controlled components course code: https://github.com/udacity/reactnd-contacts-complete/commit/ce3a9a8a0f1d8d0224eba663e512cd309fb1f804
 
@@ -59,16 +60,27 @@ class Search extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid"></ol>
-                {this.state.queriedBooks.map(
-                  (queriedBooks) =>
-                    <li key={queriedBooks.id}>
+                {this.state.queriedBooks.map((queriedBook) => {
+                    let shelf = 'none'
+
+                    this.props.books.map(book => (
+                      book.id === queriedBook.id ?
+                      shelf = book.shelf : ''
+                    ))
+
+                    return (
+                    <li key={queriedBook.id}>
                       <Book
-                        book={queriedBooks}
+                        book={queriedBook}
                         moveBook={this.props.moveBook}
+                        currentShelf={shelf}
                       />
-                    </li>)}
+                    </li>
+                    )
+                  })
+                }
             </div>
-          </div>
+        </div>
         )    
     }
 }
