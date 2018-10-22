@@ -39,7 +39,6 @@ class Search extends Component {
                 to='/'
                 className="close-search" 
               >Close</Link>
-
               <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
