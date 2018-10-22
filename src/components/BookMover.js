@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 
 class BookMover extends Component {
     render() {
-        console.log(this.props)
-        console.log(this.props.book.state)
         return(
             <div className="book-shelf-changer">
                 {/*Credit: https://reactjs.org/docs/handling-events.html and https://github.com/muicss/mui/issues/73*/}
