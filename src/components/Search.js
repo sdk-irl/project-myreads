@@ -31,7 +31,7 @@ class Search extends Component {
 // Credit: Learned this from, but also rewrote some parts of code almost line-for-line from  
 // Udacity controlled components course code: https://github.com/udacity/reactnd-contacts-complete/commit/ce3a9a8a0f1d8d0224eba663e512cd309fb1f804
 // Significant help in this section from Maeva's walkthrough https://www.youtube.com/watch?v=i6L2jLHV9j8, 
-// also troubleshooting assistance from @drunkenkismet and @carlos[FEND] on Slack DM
+// troubleshooting assistance from @drunkenkismet and @carlos[FEND] on Slack DM
     render() {
         return(
             <div className="search-books">
@@ -52,11 +52,10 @@ class Search extends Component {
             <div className="search-books-results">
               <ol className="books-grid"></ol>
                 {this.state.queriedBooks.map((queriedBook) => {
-                    let shelf = 'none'
-
+                    let shelf;
                     this.props.books.map(book => (
                       book.id === queriedBook.id ?
-                      shelf = book.shelf : ''
+                      shelf = book.shelf : shelf = 'none'
                     ))
 
                     return (

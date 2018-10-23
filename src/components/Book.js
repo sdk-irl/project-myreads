@@ -4,7 +4,6 @@ import BookMover from './BookMover'
 class Book extends Component {
     render() {
         let imageURL = this.props.book.imageLinks ? this.props.book.imageLinks.smallThumbnail : ''
-        console.log('book.js', this.props)
         return(
             <div className="book">
                 <div className="book-top">
